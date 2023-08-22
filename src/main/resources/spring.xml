@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!--We can define scope of any bean, by default it is singleton which means a single object will be created everytime-->
+    <bean id="alien" class="org.project.Alien" >
+        <!--This way we can give default value to a property-->
+        <property name="age" value="10"></property>
+        <!-- This constructor-arg helps in injecting the value in parameterized constructor, so even if we don't have a default constructor we won't get any error if we use this. This is called constructor injection -->
+<!--        <constructor-arg value="12"></constructor-arg>-->
+        <!-- We can use ref to refer to the object because we can't directly use object inside value. The ref name should match with the bean name. This is called setter injection -->
+        <property name="com" ref="desktop"></property>
+    </bean>
+    <bean id="laptop" class="org.project.Laptop">
+
+    </bean>
+    <bean id="desktop" class="org.project.Desktop">
+
+    </bean>
+</beans>
